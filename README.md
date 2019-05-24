@@ -1,0 +1,1 @@
+# mimota_july_blog
