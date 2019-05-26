@@ -30,7 +30,7 @@ public class BlogController {
 		
 		IBlogService.uploadBlog(content);
 		System.out.println("insert successfully");
-		return "index";
+		return "createBlogsuccess";
 		
 	}
 	

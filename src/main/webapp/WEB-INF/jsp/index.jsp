@@ -4,14 +4,13 @@
 <html>
 
 <head>
-<title>index</title>
+<title>blog</title>
 <script type="text/javascript" src="blog/js/jquery-1.7.1.min.js"></script>
 </head>
 
 <body>
 	<div>
-		<h1>index</h1>
-		
+		<h1>this is our index</h1>
 	</div>
 
 	<a href="/blog/create">create a new blog</a>

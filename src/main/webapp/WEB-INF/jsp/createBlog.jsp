@@ -18,6 +18,13 @@ div {
 </head>
 
 <body>
+
+<div class="top">
+
+		<a href="/index">index</a>
+</div>
+
+
 	<form action = "/blog/upload" method="post">
 		<textarea id="container" name="content" type="text/plain">
 		</textarea>
