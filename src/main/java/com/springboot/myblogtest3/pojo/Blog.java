@@ -1,11 +1,12 @@
 package com.springboot.myblogtest3.pojo;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.apache.ibatis.type.Alias;
 
 @Alias(value = "blog")
-public class Blog {
+public class Blog implements Serializable{
 	
 	Integer id;
 	

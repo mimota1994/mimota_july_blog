@@ -26,8 +26,8 @@ div {
 
 	<script type="text/javascript">
 		var editor = UE.getEditor('container');
+		editor.setHeight(600);
 		function postData(){
-			alert(editor.getContent());
 			return editor.getContent();
 		}
 	</script>

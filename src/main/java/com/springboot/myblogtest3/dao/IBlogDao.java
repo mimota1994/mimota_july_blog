@@ -1,5 +1,7 @@
 package com.springboot.myblogtest3.dao;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.springboot.myblogtest3.pojo.Blog;
@@ -9,5 +11,7 @@ public interface IBlogDao {
 	
 	public void insert(Blog blog);
 
-	public String get(Integer id);
+	public Blog get(Integer id);
+	
+	public List<Blog> list();
 }

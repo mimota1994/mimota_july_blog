@@ -1,5 +1,7 @@
 package com.springboot.myblogtest3.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,8 +25,15 @@ public class BlogServiceImpl implements IBlogService{
 	}
 
 	@Override
-	public String get(Integer id) {
-		String content = iBlogDao.get(id);
-		return content;
+	public Blog get(Integer id) {
+		Blog blog = iBlogDao.get(id);
+		return blog;
+	}
+
+	@Override
+	public List<Blog> list() {
+		List<Blog> list = iBlogDao.list();
+		
+		return list;
 	}
 }
