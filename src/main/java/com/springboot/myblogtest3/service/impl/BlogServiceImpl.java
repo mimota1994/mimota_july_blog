@@ -15,11 +15,11 @@ public class BlogServiceImpl implements IBlogService{
 	@Autowired
 	private IBlogDao iBlogDao = null;
 	
-	public void uploadBlog(String content) {
+	public void uploadBlog(String title, String content) {
 		Blog blog = new Blog();
 		
 		blog.setContent(content);
-		blog.setTitle("titile for every thing");
+		blog.setTitle(title);
 		
 		iBlogDao.insert(blog);
 	}
@@ -35,5 +35,11 @@ public class BlogServiceImpl implements IBlogService{
 		List<Blog> list = iBlogDao.list();
 		
 		return list;
+	}
+
+	@Override
+	public void delete(Integer id) {
+		iBlogDao.delete(id);
+		
 	}
 }

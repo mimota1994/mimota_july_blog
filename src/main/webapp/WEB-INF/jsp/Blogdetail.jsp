@@ -13,6 +13,11 @@
 	</div>
 
 	${blog.content}
+	
+	<div class="top">
+		<a href="/blog/delete?id=${blog.id}">delete this blog forever</a>
+	</div>
+	
 </body>
 
 </html>

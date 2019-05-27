@@ -17,7 +17,9 @@ div {
 </style>
 </head>
 
+
 <body>
+
 
 <div class="top">
 
@@ -26,6 +28,7 @@ div {
 
 
 	<form action = "/blog/upload" method="post">
+		<input type="text" name = "title" style = "height:2.5em;width:400px;padding-top:2px" maxlength="100" placeholder="输入文章标题">
 		<textarea id="container" name="content" type="text/plain">
 		</textarea>
 		<button id = "btn"  onclick = "postData()">提交</button>

@@ -17,4 +17,9 @@
 		select * from t_blog
 	</select>
 	
+	<delete id="delete" parameterType="int">
+		delete from t_blog
+		where id=#{id}
+	</delete>
+	
 </mapper>

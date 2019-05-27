@@ -15,7 +15,7 @@ import com.springboot.myblogtest3.service.IBlogService;
 public class BlogController {
 	
 	@Autowired
-	private IBlogService IBlogService;
+	private IBlogService iBlogService;
 	
 	
 	@RequestMapping("/create")
@@ -26,9 +26,9 @@ public class BlogController {
 	}
 	
 	@RequestMapping("/upload")
-	public String upLoadBlog(String content) {
+	public String upLoadBlog(String title, String content) {
 		
-		IBlogService.uploadBlog(content);
+		iBlogService.uploadBlog(title, content);
 		System.out.println("insert successfully");
 		return "createBlogsuccess";
 		
@@ -36,10 +36,17 @@ public class BlogController {
 	
 	@RequestMapping("/get")
 	public ModelAndView getBlog(Integer id) {
-		Blog blog = IBlogService.get(id);
+		Blog blog = iBlogService.get(id);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("Blogdetail");
 		mv.addObject("blog", blog);
 		return mv;
+	}
+	
+	@RequestMapping("/delete")
+	public String delete(Integer id) {
+		iBlogService.delete(id);
+		
+		return "createBlogsuccess";
 	}
 }

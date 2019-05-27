@@ -14,4 +14,7 @@ public interface IBlogDao {
 	public Blog get(Integer id);
 	
 	public List<Blog> list();
+	
+	public void delete(Integer id);
+	
 }
