@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <html>
 <head>
-<title>完整demo</title>
+<title>success</title>
 </head>
 
 <body>
@@ -11,7 +11,7 @@
 		<a href="/index">index</a>
 	</div>
 	
-	<p>create blog successfully, and we will back to index</p>
+	<p>operation is successful, and we will back to index</p>
 	<meta http-equiv="refresh" content="1;url=/index">
 
 </body>

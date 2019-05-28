@@ -49,4 +49,10 @@ public class BlogController {
 		
 		return "createBlogsuccess";
 	}
+	
+	@RequestMapping("/edit")
+	public String editor(Integer id) {
+		
+		return "editblog";
+	}
 }

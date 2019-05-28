@@ -31,7 +31,7 @@
 						</div>
 					
 		                <dl class="des">
-		                	<p>${blog.title}</p>
+		                	<p>${blog.introduction}</p>
 		                	
 		                    <a class="buy buyservice" href="/blog/get?id=${blog.id}"><br/>查看<br/>详情</a>
 		                </dl>

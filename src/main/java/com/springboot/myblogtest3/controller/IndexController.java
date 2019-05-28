@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.springboot.myblogtest3.pojo.Blog;
 import com.springboot.myblogtest3.service.IBlogService;
+import com.springboot.myblogtest3.vo.FullBlog;
 
 @Controller
 public class IndexController {
@@ -21,12 +22,17 @@ public class IndexController {
 	public ModelAndView index() {
 		
 		List<Blog> list = iBlogService.list();
+		List<FullBlog> fullBlogList = new ArrayList<>();
+		
+		for(Blog blog : list) {
+			fullBlogList.add(dealWithBlog(blog));
+		}
 		
 		ModelAndView mv = new ModelAndView();
 		
 		mv.setViewName("index");
 		
-		mv.addObject("blogList", list);
+		mv.addObject("blogList", fullBlogList);
 		
 		return mv;
 	}
@@ -35,15 +41,43 @@ public class IndexController {
 	public ModelAndView indexTmp() {
 		
 		List<Blog> list = iBlogService.list();
+		List<FullBlog> fullBlogList = new ArrayList<>();
+		
+		for(Blog blog : list) {
+			fullBlogList.add(dealWithBlog(blog));
+		}
 		
 		ModelAndView mv = new ModelAndView();
 		
 		mv.setViewName("index");
 		
-		mv.addObject("blogList", list);
+		mv.addObject("blogList", fullBlogList);
 		
 		return mv;
 	}
 	
+	
+	FullBlog dealWithBlog(Blog blog) {
+		FullBlog fullBlog = new FullBlog();
+		
+		fullBlog.setContent(blog.getContent());
+		fullBlog.setId(blog.getId());
+		fullBlog.setTitle(blog.getTitle());
+		
+		String content = blog.getContent();
+		String[] strs = content.split("<.*?>");
+		String introduction = "";
+		for(String str : strs) {
+			introduction += str;
+		}
+		
+		if(introduction.length() >= 20) {
+			introduction = introduction.substring(0, 20);
+		}
+		
+		fullBlog.setIntroduction(introduction);
+		
+		return fullBlog;
+	}
 	
 }
