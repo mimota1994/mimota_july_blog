@@ -35,11 +35,14 @@ div {
 	</form>
 
 	<script type="text/javascript">
-		var editor = UE.getEditor('container');
-		editor.setHeight(600);
-		function postData(){
-			return editor.getContent();
-		}
+		var editor = UE.getEditor('container',{autoHeight:false});
+		editor.ready(function(){
+			editor.setHeight(1000);
+			function postData(){
+				return editor.getContent();
+			}
+		})
+		
 	</script>
 
 </body>

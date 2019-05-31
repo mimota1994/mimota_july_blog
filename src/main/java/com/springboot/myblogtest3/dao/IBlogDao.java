@@ -17,4 +17,8 @@ public interface IBlogDao {
 	
 	public void delete(Integer id);
 	
+	public int create(Blog blog);
+	
+	public int update(Blog blog);
+	
 }
