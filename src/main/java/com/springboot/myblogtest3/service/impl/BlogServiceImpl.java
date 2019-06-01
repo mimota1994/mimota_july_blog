@@ -2,6 +2,7 @@ package com.springboot.myblogtest3.service.impl;
 
 import java.util.List;
 
+import com.springboot.myblogtest3.common.ResponseStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,56 +17,54 @@ public class BlogServiceImpl implements IBlogService{
 	@Autowired
 	private IBlogDao iBlogDao = null;
 	
-	public void updateBlog(Blog blog) {
+	public ComResponse updateBlog(Blog blog) {
 		
 		int result = iBlogDao.update(blog);
-		
-		ComResponse<Integer> response = new ComResponse<Integer>();
+
 		if(result > 0) {
-			response.code = 0;
-			response.msg = "create blog successfully";
-			response.data = blog.getId();
-			return response;
+			return new ComResponse(ResponseStatus.CORRECT.code, ResponseStatus.CORRECT.msg);
 		}else {
-			response.code = 1;
-			response.msg = "db error";
-			return response;
+
+			return new ComResponse(ResponseStatus.UPDATE_BLOG_ERROR.code, ResponseStatus.UPDATE_BLOG_ERROR.msg);
 		}
 		
 	}
 
 	@Override
-	public Blog get(Integer id) {
+	public ComResponse get(Integer id) {
+
 		Blog blog = iBlogDao.get(id);
-		return blog;
+		if(blog == null){
+			return new ComResponse(ResponseStatus.NO_SUCH_BLOG.code, ResponseStatus.NO_SUCH_BLOG.msg);
+		}
+		return new ComResponse(ResponseStatus.CORRECT.code, ResponseStatus.CORRECT.msg, blog);
 	}
 
 	@Override
-	public List<Blog> list() {
+	public ComResponse list() {
 		List<Blog> list = iBlogDao.list();
-		
-		return list;
+
+		return new ComResponse(ResponseStatus.CORRECT.code, ResponseStatus.CORRECT.msg, list);
 	}
 
 	@Override
-	public void delete(Integer id) {
-		iBlogDao.delete(id);
-		
+	public ComResponse delete(Integer id) {
+		int result = iBlogDao.delete(id);
+
+		if(result > 0){
+			return new ComResponse(ResponseStatus.CORRECT.code, ResponseStatus.CORRECT.msg);
+		}
+		return new ComResponse(ResponseStatus.DELETE_BLOG_ERROR.code, ResponseStatus.DELETE_BLOG_ERROR.msg);
 	}
 
 	@Override
-	public ComResponse<Integer> create(Blog blog) {
+	public ComResponse create(Blog blog) {
 		int result = iBlogDao.create(blog);
-		ComResponse<Integer> response = new ComResponse<Integer>();
 		if(result > 0) {
-			response.code = 0;
-			response.msg = "create blog successfully";
-			response.data = blog.getId();
-			return response;
+			return new ComResponse(ResponseStatus.CORRECT.code, ResponseStatus.CORRECT.msg, blog.getId());
 		}else {
-			response.code = 1;
-			response.msg = "db error";
-			return response;
+			return new ComResponse(ResponseStatus.CREATE_BLOG_ERROR.code, ResponseStatus.CREATE_BLOG_ERROR.msg);
+
 		}
 	}
 }

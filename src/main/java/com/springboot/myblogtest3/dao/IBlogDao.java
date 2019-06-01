@@ -15,7 +15,7 @@ public interface IBlogDao {
 	
 	public List<Blog> list();
 	
-	public void delete(Integer id);
+	public int delete(Integer id);
 	
 	public int create(Blog blog);
 	

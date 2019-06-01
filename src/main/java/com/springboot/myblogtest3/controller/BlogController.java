@@ -27,7 +27,7 @@ public class BlogController {
 	}
 	
 	@RequestMapping("/update")
-	public String updateBlog(Blog blog) {
+	public ComResponse updateBlog(Blog blog) {
 		
 		return iBlogService.updateBlog(blog);
 		

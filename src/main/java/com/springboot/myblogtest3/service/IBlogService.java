@@ -7,15 +7,15 @@ import com.springboot.myblogtest3.pojo.Blog;
 
 public interface IBlogService {
 	
-	public void updateBlog(Blog blog);
+	public ComResponse updateBlog(Blog blog);
 	
-	public Blog get(Integer id);
+	public ComResponse get(Integer id);
 	
-	public List<Blog> list();
+	public ComResponse list();
 	
-	public void delete(Integer id);
+	public ComResponse delete(Integer id);
 	
-	public ComResponse<Integer> create(Blog blog);
+	public ComResponse create(Blog blog);
 
 
 }
