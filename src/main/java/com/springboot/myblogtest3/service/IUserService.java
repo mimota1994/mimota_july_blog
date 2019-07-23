@@ -10,7 +10,7 @@ public interface IUserService {
 	public MyResponse insertUser(User user);
 	
 	public User getUser(Long id);
-	
+//
 	public List<User> listUser();
 
 }

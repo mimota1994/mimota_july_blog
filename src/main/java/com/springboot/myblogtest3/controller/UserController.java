@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.springboot.myblogtest3.pojo.User;
 import com.springboot.myblogtest3.service.IUserService;
 import com.springboot.myblogtest3.util.MyResponse;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 @RequestMapping("/user")
 public class UserController {
 	
@@ -20,19 +21,16 @@ public class UserController {
 	private IUserService iUserService = null;
 	
 	@RequestMapping("/add")
-	@ResponseBody
 	public MyResponse addUser(User user) {
 		return iUserService.insertUser(user);
 	}
 	
 	@RequestMapping("/get")
-	@ResponseBody
 	public User getUser(Long id) {
 		return iUserService.getUser(id);
 	}
-	
+
 	@RequestMapping("/list")
-	@ResponseBody
 	public List<User> listUser() {
 		return iUserService.listUser();
 	}

@@ -1,8 +1,7 @@
 package com.springboot.myblogtest3.pojo;
 
-import org.apache.ibatis.type.Alias;
 
-@Alias(value = "user")
+//@Alias(value = "user")
 public class User {
 	
 	private Long id = null;
