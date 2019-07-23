@@ -30,4 +30,9 @@ public class UserController {
 	public MyResponse<List<User>> listUser() {
 		return iUserService.listUser();
 	}
+
+	@RequestMapping("/addTable")
+	public MyResponse addUserTable() {
+		return iUserService.createNewTable();
+	}
 }

@@ -4,7 +4,7 @@ public class Message {
 
     public static final String ADD_USER_SUCCESS = "successfully add an user";
     public static final String DELETE_USER_SUCCESS = "successfully delete an user";
-    public static final String GET_USER_SUCCESS = "successfully delete an user";
+    public static final String GET_USER_SUCCESS = "successfully get an user";
     public static final String UPDATE_USER_SUCCESS = "successfully update an user";
     public static final String SEARCH_USER_SUCCESS = "successfully search users";
 

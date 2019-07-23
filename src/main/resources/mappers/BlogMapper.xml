@@ -16,5 +16,4 @@
 	<select id="list" resultType="blog">
 		select * from t_blog
 	</select>
-	
 </mapper>

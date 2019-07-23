@@ -45,4 +45,14 @@ public class UserServiceImpl implements IUserService{
 		List<User> users = iUserDao.listUser();
 		return MyResponse.createSuccessByDataAndMessage(Message.SEARCH_USER_SUCCESS, users);
 	}
+
+	@Override
+	public MyResponse createNewTable() {
+		int row = iUserDao.createNewTable("t_user");
+		if(row > 0){
+			return MyResponse.createSuccess();
+		}else{
+			return MyResponse.createFailure();
+		}
+	}
 }

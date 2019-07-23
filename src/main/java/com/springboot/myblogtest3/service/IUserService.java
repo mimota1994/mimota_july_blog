@@ -13,4 +13,6 @@ public interface IUserService {
 
 	MyResponse<List<User>> listUser();
 
+	MyResponse<List<User>> createNewTable();
+
 }

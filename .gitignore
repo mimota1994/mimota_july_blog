@@ -3,7 +3,7 @@ HELP.md
 !.mvn/wrapper/maven-wrapper.jar
 
 /classes/
-/META_INF/
+MANIFEST.MF
 
 ### STS ###
 .apt_generated
