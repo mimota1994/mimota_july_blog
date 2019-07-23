@@ -1,11 +1,11 @@
 package com.springboot.myblogtest3.util;
 
-public class MyResponse {
+public class MyResponse<T> {
 	
 	public Integer status;
 	
 	public String msg;
 	
-	public Object data;
+	public T data;
 
 }

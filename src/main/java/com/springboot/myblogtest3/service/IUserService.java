@@ -7,10 +7,10 @@ import com.springboot.myblogtest3.util.MyResponse;
 
 public interface IUserService {
 	
-	public MyResponse insertUser(User user);
+	MyResponse<User> insertUser(User user);
 	
-	public User getUser(Long id);
-	
-	public List<User> listUser();
+	MyResponse<User> getUser(Long id);
+
+	MyResponse<List<User>> listUser();
 
 }

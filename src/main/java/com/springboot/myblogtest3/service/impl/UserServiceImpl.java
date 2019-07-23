@@ -19,39 +19,44 @@ public class UserServiceImpl implements IUserService{
 	
 	
 	@Override
-	public MyResponse insertUser(User user) {
-		// TODO Auto-generated method stub
-		
+	public MyResponse<User> insertUser(User user) {
 		int row = iUserDao.insertUser(user);
-		
 		MyResponse response = new MyResponse();
-		
 		response.data = user;
-		
 		if(row > 0) {
-			
 			response.msg = "success";
 			response.status = 1;
 			return response;
 		}else {
-			
 			response.msg = "failure";
 			response.status = 199;
-			
 		}
 		return response;
 	}
 	
 	@Override
-	public User getUser(Long id) {
-		
-		return iUserDao.getUser(id);
+	public MyResponse<User> getUser(Long id) {
+		User user = iUserDao.getUser(id);
+		MyResponse response = new MyResponse();
+		response.data = user;
+		if(user != null) {
+			response.msg = "success";
+			response.status = 1;
+			return response;
+		}else {
+			response.msg = "failure";
+			response.status = 199;
+		}
+		return response;
 	}
 
 	@Override
-	public List<User> listUser() {
-		// TODO Auto-generated method stub
-		return iUserDao.listUser();
+	public MyResponse<List<User>> listUser() {
+		List<User> users = iUserDao.listUser();
+		MyResponse response = new MyResponse();
+		response.data = users;
+		response.msg = "success";
+		response.status = 1;
+		return response;
 	}
-
 }

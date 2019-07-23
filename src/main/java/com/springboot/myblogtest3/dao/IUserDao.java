@@ -8,9 +8,9 @@ import com.springboot.myblogtest3.pojo.User;
 
 @Repository
 public interface IUserDao {
-	public int insertUser(User user);
+	int insertUser(User user);
 	
-	public User getUser(Long id);
+	User getUser(Long id);
 	
-	public List<User> listUser();
+	List<User> listUser();
 }
