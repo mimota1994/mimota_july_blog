@@ -2,9 +2,12 @@ package com.springboot.myblogtest3.util;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.springboot.myblogtest3.util.common.Status;
+import lombok.Data;
 
-@JsonSerialize(include =  JsonSerialize.Inclusion.NON_NULL)
-public class MyResponse<T> {
+
+@Data
+@JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
+public class MyResponse<T>{
 	
 	private Integer status;
 	private String msg;
@@ -24,7 +27,7 @@ public class MyResponse<T> {
 	}
 
 	public static <T> MyResponse<T> createSuccessByDataAndMessage(String msg, T data){
-		MyResponse response = new MyResponse();
+		MyResponse<T> response = new MyResponse();
 		response.status = Status.SUCCESS;
 		response.msg = msg;
 		response.data = data;
@@ -32,7 +35,7 @@ public class MyResponse<T> {
 	}
 
 	public static <T> MyResponse<T> createSuccessByData(T data){
-		MyResponse response = new MyResponse();
+		MyResponse<T> response = new MyResponse();
 		response.status = Status.SUCCESS;
 		response.data = data;
 		return response;
