@@ -15,5 +15,5 @@ public interface IUserDao {
 	
 	List<User> listUser();
 
-	int createNewTable(@Param("tableName")String tableName);
+	int createNewTable(@Param("tableName")String tableName) throws Exception;
 }

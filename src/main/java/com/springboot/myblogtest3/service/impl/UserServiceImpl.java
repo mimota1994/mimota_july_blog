@@ -48,10 +48,10 @@ public class UserServiceImpl implements IUserService{
 
 	@Override
 	public MyResponse createNewTable() {
-		int row = iUserDao.createNewTable("t_user");
-		if(row > 0){
+		try{
+			iUserDao.createNewTable("t_user");
 			return MyResponse.createSuccess();
-		}else{
+		}catch (Exception e){
 			return MyResponse.createFailure();
 		}
 	}
