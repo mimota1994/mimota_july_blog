@@ -9,8 +9,10 @@ public interface IUserService {
 	
 	public MyResponse insertUser(User user);
 	
-	public User getUser(Long id);
-//
-	public List<User> listUser();
+	public MyResponse getUser(Long id);
+
+	public MyResponse listUser();
+
+	public MyResponse deleteUser(int id);
 
 }

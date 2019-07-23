@@ -1,7 +1,6 @@
 package com.springboot.myblogtest3.pojo;
 
 
-//@Alias(value = "user")
 public class User {
 	
 	private Long id = null;

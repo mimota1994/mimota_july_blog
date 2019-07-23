@@ -31,42 +31,57 @@ public class UserServiceImpl implements IUserService{
 		if(row > 0) {
 			response.msg = "success";
 			response.status = 1;
-			return response;
 		}else {
-
 			response.msg = "failure";
 			response.status = 199;
-
 		}
-
-//		int row = iUserDao.insertUser(user);
-//
-//		MyResponse response = new MyResponse();
-//
-//		response.data = user;
-//
-//		if(row > 0) {
-//
-//			response.msg = "success";
-//			response.status = 1;
-//			return response;
-//		}else {
-//
-//			response.msg = "failure";
-//			response.status = 199;
-//
-//		}
 		return response;
 	}
 
 	@Override
-	public User getUser(Long id) {
+	public MyResponse getUser(Long id) {
 		String sql = "select id, userName, sex, note from t_user where id = ?";
-		return(User)jdbcTemplate.queryForObject(sql, new Object[]{id}, new BeanPropertyRowMapper(User.class));
+		MyResponse response = new MyResponse();
+
+		try{
+			User user = (User)jdbcTemplate.queryForObject(sql, new Object[]{id}, new BeanPropertyRowMapper(User.class));
+			response.msg = "success";
+			response.status = 1;
+			response.data = user;
+		}catch (Exception e){
+			response.msg = "failure";
+			response.status = 199;
+		}
+
+		return response;
 	}
+
 	@Override
-	public List<User> listUser() {
-		return null;
+	public MyResponse listUser() {
+		String sql = "select id, userName, sex, note from t_user";
+		List<User> users = (List<User>)jdbcTemplate.query(sql, new BeanPropertyRowMapper(User.class));
+		MyResponse response = new MyResponse();
+		response.msg = "success";
+		response.status = 1;
+		response.data = users;
+
+		return response;
+	}
+
+	@Override
+	public MyResponse deleteUser(int id) {
+		String sql = "delete from t_user where id = ?";
+		int row = jdbcTemplate.update(sql, id);
+		MyResponse response = new MyResponse();
+
+		if(row > 0) {
+			response.msg = "success";
+			response.status = 1;
+		}else {
+			response.msg = "failure";
+			response.status = 199;
+		}
+		return response;
 	}
 
 

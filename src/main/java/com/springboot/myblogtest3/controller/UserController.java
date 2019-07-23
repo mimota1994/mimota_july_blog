@@ -26,14 +26,20 @@ public class UserController {
 	}
 	
 	@RequestMapping("/get")
-	public User getUser(Long id) {
+	public MyResponse getUser(Long id) {
 		return iUserService.getUser(id);
 	}
 
 	@RequestMapping("/list")
-	public List<User> listUser() {
+	public MyResponse listUser() {
 		return iUserService.listUser();
 	}
-	
-	
+
+	@RequestMapping("/delete")
+	public MyResponse deleteUser(int id) {
+		return iUserService.deleteUser(id);
+	}
+
+
+
 }
